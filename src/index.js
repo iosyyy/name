@@ -12,10 +12,11 @@ import {DatePicker} from 'antd'
 import {createStore} from "redux"
 import {connect, Provider} from 'react-redux'
 
-
+const lists=[]
 const CreateRedoucer =
 function(state,action){
-        return state
+    lists.push({pay:action.payload,type:action.type})
+    return {...state,lists}
 }
 var store = createStore(CreateRedoucer);
 store.dispatch(
@@ -27,13 +28,13 @@ store.dispatch(
 store.dispatch(
     {
         type:'name',
-        payload:'jing'
+        payload:'xing'
     }
 )
 store.dispatch(
     {
         type:'name',
-        payload:'jing'
+        payload:'x'
     }
 )
 var arr = [1, 2, 3, 4, 5, 6, 7]
