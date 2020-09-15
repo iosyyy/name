@@ -1,11 +1,12 @@
 import React from "react";
 import '../css/Test.css'
 import {HashRouter} from "react-router-dom";
+import {connect} from "react-redux";
 
-export default class Test extends React.Component {
+ class Test extends React.Component {
     constructor(props) {
         super(props);
-
+        console.log(props)
     }
 
 
@@ -26,3 +27,10 @@ export default class Test extends React.Component {
         </h1></div>)
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        state:state
+    }
+}
+export default connect(mapStateToProps)(Test)
